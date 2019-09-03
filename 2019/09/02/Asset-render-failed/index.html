@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Hello World | CQC_blog
+      Asset render failed | CQC_blog
     
   </title>
   <meta name="author" content="CQC_blog">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《Hello World》
+			当前文章&nbsp;:&nbsp;《Asset render failed》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		Hello World
+	<a href="/2019/09/02/Asset-render-failed/" itemprop="url">
+		Asset render failed
 	</a>
 
 	</div>
@@ -291,9 +291,9 @@
 
 	发布于
 
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		<time datetime="2019-08-13T13:36:29.119Z" itemprop="datePublished">
-	  		2019-08-13
+	<a href="/2019/09/02/Asset-render-failed/" itemprop="url">
+		<time datetime="2019-09-02T14:59:31.000Z" itemprop="datePublished">
+	  		2019-09-02
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +309,9 @@
 
 	更新于
 
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		<time datetime="2019-08-13T13:36:29.119Z" itemprop="dateUpdated">
-	  		2019-08-13
+	<a href="/2019/09/02/Asset-render-failed/" itemprop="url">
+		<time datetime="2019-09-02T14:59:31.000Z" itemprop="dateUpdated">
+	  		2019-09-03
 	  </time>
 	</a> 
 
@@ -320,7 +320,13 @@
 		</span>
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/hexo/" class=" ">
+			hexo
+		</a>
+	
+		
 		</span>
 		
 		
@@ -330,23 +336,23 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+		<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>修改完配置文件后突然出现了错误 <code>hexo s</code><br>    <img src="/2019/09/02/Asset-render-failed/1.png" title="avatar"></p>
+<h3 id="查找错误"><a href="#查找错误" class="headerlink" title="查找错误"></a>查找错误</h3><p>查看styl文件后并没有发现什么问题<br><code>_code_copy.styl</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.copy-nav &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: flex;</span><br><span class="line">    display: -webkit-flex;</span><br><span class="line">    align-items: center;</span><br><span class="line">    margin-bottom: 0px;</span><br><span class="line">    color: <span class="variable">$highlight</span>-gutter.color;</span><br><span class="line">    background: <span class="variable">$highlight</span>-gutter.bg-color;</span><br><span class="line">    // z-index: 5;</span><br><span class="line">    xxxxxxx</span><br><span class="line">    xxxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><code>_theme.styl</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$highlight_theme</span> = hexo-config(<span class="string">"highlight_theme"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="variable">$highlight_theme</span> == <span class="string">"normal"</span></span><br><span class="line">  <span class="variable">$highlight</span>-background   = <span class="comment">#f7f7f7</span></span><br><span class="line">  <span class="variable">$highlight</span>-current-line = <span class="comment">#efefef</span></span><br><span class="line">  <span class="variable">$highlight</span>-selection    = <span class="comment">#d6d6d6</span></span><br><span class="line">  <span class="variable">$highlight</span>-foreground   = <span class="comment">#4d4d4c</span></span><br><span class="line">  <span class="variable">$highlight</span>-comment      = <span class="comment">#8e908c</span></span><br><span class="line">  <span class="variable">$highlight</span>-red          = <span class="comment">#c82829</span></span><br><span class="line">  <span class="variable">$highlight</span>-orange       = <span class="comment">#f5871f</span></span><br><span class="line">  <span class="variable">$highlight</span>-yellow       = <span class="comment">#eab700</span></span><br><span class="line">  <span class="variable">$highlight</span>-green        = <span class="comment">#718c00</span></span><br><span class="line">  <span class="variable">$highlight</span>-aqua         = <span class="comment">#3e999f</span></span><br><span class="line">  <span class="variable">$highlight</span>-blue         = <span class="comment">#4271ae</span></span><br><span class="line">  <span class="variable">$highlight</span>-purple       = <span class="comment">#8959a8</span></span><br><span class="line">  <span class="variable">$highlight</span>-gutter       = &#123;</span><br><span class="line">    color: <span class="comment">#869194,</span></span><br><span class="line">    <span class="built_in">bg</span>-color: <span class="comment">#eff2f3</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="variable">$highlight_theme</span> == <span class="string">"night"</span></span><br><span class="line"> 	xxxxxxx</span><br><span class="line"> 	xxxxxxx</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>注释掉错误之处后其他调用到<code>$highlight-gutter</code> 任然报错。</p>
+<p>仔细观察<code>_theme.styl</code> 文件后发现，$highlight-gutter 没有默认值，有可能是没有赋值成功造成的。<br>查看配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># post_code</span></span><br><span class="line"><span class="comment"># highlight_theme: normal | night | night blue | night bright | night eighties</span></span><br><span class="line">highlight_theme: “night bright”</span><br><span class="line">code_copy:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>果然配置文件出错，<code>“night bright”</code> 应该是单引号， 修改后问题解决。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>粗心大意害死人啊，调了好久。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/cover/005.jpg"></div>
+	<div id="current-post-cover" data-scr="/001.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -361,10 +367,10 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/09/02/Asset-render-failed/" title="Asset render failed" rel="prev">
-				&laquo;上一篇
-			</a>
 		
+			<a href="/2019/08/13/hello-world/" title="Hello World" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
 
@@ -383,24 +389,22 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/09/02/Asset-render-failed/" title="Asset render failed">
-								Asset render failed			
+							<a class="relate-post-title" href="/2019/08/13/hello-world/" title="Hello World">
+								Hello World			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								九月 2日, 2019				
+								八月 13日, 2019				
 							</p>
 							<p class="relate-post-content">
-								错误修改完配置文件后突然出现了错误 hexo s    
-查找错误查看styl文件后并没有发现什么问题_code_copy.styl
-123456789101112.copy-nav &#123;    position: relat...
+								Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/09/02/Asset-render-failed/" title="Asset render failed">				
+							<a href="/2019/08/13/hello-world/" title="Hello World">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="001.jpg" alt="Asset render failed"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cover/005.jpg" alt="Hello World"/>
 							</a>
 						</div>
 					</li>											
