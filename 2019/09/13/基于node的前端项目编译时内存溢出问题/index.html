@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Hello World | CQC_blog
+      基于node的前端项目编译时内存溢出问题 | CQC_blog
     
   </title>
   <meta name="author" content="CQC_blog">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《Hello World》
+			当前文章&nbsp;:&nbsp;《基于node的前端项目编译时内存溢出问题》
 		
 	</p>
 
@@ -277,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		Hello World
+	<a href="/2019/09/13/基于node的前端项目编译时内存溢出问题/" itemprop="url">
+		基于node的前端项目编译时内存溢出问题
 	</a>
 
 	</div>
@@ -291,9 +291,9 @@
 
 	发布于
 
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		<time datetime="2019-08-13T13:36:29.119Z" itemprop="datePublished">
-	  		2019-08-13
+	<a href="/2019/09/13/基于node的前端项目编译时内存溢出问题/" itemprop="url">
+		<time datetime="2019-09-13T15:02:04.000Z" itemprop="datePublished">
+	  		2019-09-13
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +309,9 @@
 
 	更新于
 
-	<a href="/2019/08/13/hello-world/" itemprop="url">
-		<time datetime="2019-08-13T13:36:29.119Z" itemprop="dateUpdated">
-	  		2019-08-13
+	<a href="/2019/09/13/基于node的前端项目编译时内存溢出问题/" itemprop="url">
+		<time datetime="2019-09-13T15:02:04.000Z" itemprop="dateUpdated">
+	  		2019-09-13
 	  </time>
 	</a> 
 
@@ -320,7 +320,21 @@
 		</span>
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/node/" class=" ">
+			node
+		</a>
+	
+		<a href="/tags/内存溢出/" class=" ">
+			内存溢出
+		</a>
+	
+		<a href="/tags/error/" class=" ">
+			error
+		</a>
+	
+		
 		</span>
 		
 		
@@ -330,19 +344,18 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+		<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>项目用的是<code>react</code>，修改完的部分代码之后输入命令<code>npm run build</code>报错内存溢出。<br>    <img src="/2019/09/13/基于node的前端项目编译时内存溢出问题/1.png" title="avatar"><br><code>Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory</code> 网上查了一下解决方案，记录一下。主要参考了<a href="https://segmentfault.com/a/1190000010437948" target="_blank" rel="noopener">基于node的前端项目编译时内存溢出问题</a>。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>错误说的是是<code>JavaScript</code>堆内存不足，这里说的 <code>JavaScript</code> 其实就是 <code>Node</code>，在 <code>Node</code> 中通过 <code>JavaScript</code> 使用内存时只能使用部分内存（64位系统下约为1.4 GB，32位系统下约为0.7 GB），这就是我们编译项目时为什么会出现内存泄露了，因为前端项目如果非常的庞大，<code>webpack</code> 编译时就会占用很多的系统资源，如果超出了V8对 <code>Node</code> 默认的内存限制大小就会出现刚刚我截图的那个错误了，V8依然提供了选项让我们使用更多的内存。<code>Node</code> 在启动时可以传递 <code>--max-old-space-size</code> 或 <code>--max-new-space-size</code> 来调整内存大小的使用限制。<br><code>react</code>如果是自己搭建的开发包环境的话，直接再<code>node</code>后边加上<code>--max_old_space_size=4096</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;node --max_old_space_size=4096 build/build.js&quot;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>但是如果是基于<code>react-cli</code> 生成的项目的话，在<code>package.json</code>中<code>scripts</code>中内容一般是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;react-scripts start&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;react-scripts build&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,</span><br><span class="line">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>也就是说我们的<code>npm run build</code>命令其实是运行的脚本<code>react-scripts build</code>，这个脚本实际上是在<code>node_models/.bin/react-scripts</code>中，这个文件的首行代码是 <code>#!/ussr/bin/env node</code>，意思是使用当前电脑<code>/usr/bin/env</code>目录下的<code>node</code>来运行该文件中的<code>javascript</code>代码，所以我们可以把<code>--max_old_space_size=4096</code>这一行代码写在<code>#!/usr/bin/env node</code>后边，<code>#!/usr/bin/env node --max_old_space_size=4096</code>。<br>     <img src="/2019/09/13/基于node的前端项目编译时内存溢出问题/2.png" title="avatar"><br>然而不起作用，我再次运行<code>npm run build</code>命令的时候甚至没有进入build过程，就一直停止下来了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; xxxxt@xxx build /www/xxxx/xxxx</span><br><span class="line">&gt; react-scripts build</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>一怒之下我将之前添加的命令去掉，直接<code>reboot</code>，然后就解决了。重启操作可靠啊。</p>
+<p>因为重启之后问题不能复现，所以还不能确定是什么导致的，因该之前的命令输入的有问题。这个等之后再细看。</p>
 	
 	</div>
 	
@@ -361,10 +374,10 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/09/02/Asset-render-failed/" title="Asset render failed" rel="prev">
-				&laquo;上一篇
-			</a>
 		
+			<a href="/2019/09/05/MySQL/" title="MySQL" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
 
@@ -383,22 +396,24 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/09/13/基于node的前端项目编译时内存溢出问题/" title="基于node的前端项目编译时内存溢出问题">
-								基于node的前端项目编译时内存溢出问题			
+							<a class="relate-post-title" href="/2019/09/02/Asset-render-failed/" title="Asset render failed">
+								Asset render failed			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								九月 13日, 2019				
+								九月 2日, 2019				
 							</p>
 							<p class="relate-post-content">
-								错误项目用的是react，修改完的部分代码之后输入命令npm run build报错内存溢出。    Ineffective mark-compacts near heap limit Allocation failed - Java...
+								错误修改完配置文件后突然出现了错误 hexo s    
+查找错误查看styl文件后并没有发现什么问题_code_copy.styl
+123456789101112.copy-nav &#123;    position: relat...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/09/13/基于node的前端项目编译时内存溢出问题/" title="基于node的前端项目编译时内存溢出问题">				
+							<a href="/2019/09/02/Asset-render-failed/" title="Asset render failed">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cover/005.jpg" alt="基于node的前端项目编译时内存溢出问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cover/001.jpg" alt="Asset render failed"/>
 							</a>
 						</div>
 					</li>											
@@ -453,24 +468,22 @@ ACID1. 原子性（Atomicity）事务被视为不可分割的最小单元，事�
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/09/02/Asset-render-failed/" title="Asset render failed">
-								Asset render failed			
+							<a class="relate-post-title" href="/2019/08/13/hello-world/" title="Hello World">
+								Hello World			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								九月 2日, 2019				
+								八月 13日, 2019				
 							</p>
 							<p class="relate-post-content">
-								错误修改完配置文件后突然出现了错误 hexo s    
-查找错误查看styl文件后并没有发现什么问题_code_copy.styl
-123456789101112.copy-nav &#123;    position: relat...
+								Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/09/02/Asset-render-failed/" title="Asset render failed">				
+							<a href="/2019/08/13/hello-world/" title="Hello World">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cover/001.jpg" alt="Asset render failed"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cover/005.jpg" alt="Hello World"/>
 							</a>
 						</div>
 					</li>											
